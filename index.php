@@ -65,6 +65,7 @@ function getCountCat($dataCat) {
     foreach ($dataLinks as $item) {
         $count[] = pq($item)->attr('href');
     }
+    phpQuery::unloadDocuments();
     if (!empty($count)) {
         return count($count);
     } else {
@@ -83,6 +84,7 @@ for ($i = 0; $i <= $countCategory; $i++) {
         foreach ($dataLinks as $item) {
             $data[] = pq($item)->attr('href');
         }
+        phpQuery::unloadDocuments();
     }
 }
 
@@ -99,6 +101,7 @@ foreach ($data as $cats) {
             'catagery' => 1,
         ];
     }
+    phpQuery::unloadDocuments();
 }
 
 
@@ -117,16 +120,3 @@ foreach ($dataList as $itemBd) {
         $db->query('INSERT INTO `itemProduct` SET ?As', $itemBd);
     }
 }
-
-// echo "<hr>";
-// echo "<hr>";
-// // echo 'Это датафулл ->';
-// // var_dump($dataFull);
-echo "<hr>";
-echo "<pre>";
-echo 'Это даталист ->';
-var_dump($dataList);
-// // echo "<hr>";
-// echo "<hr>";
-// echo 'Это дата ->';
-// var_dump($data);
